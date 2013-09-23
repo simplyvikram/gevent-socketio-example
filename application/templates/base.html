@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/socketio/socket.io.min.js') }}">
+        </script>
+
+        <div id="main">
+        {% block content %}
+        {% endblock content %}
+        </div>
+
+
+    </body>
+</html>
