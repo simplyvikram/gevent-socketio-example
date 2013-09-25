@@ -1,17 +1,24 @@
+"""
+Always create the flask application object first before importing anything else
+to avoid circular imports
+"""
+from flask import Flask
+app = Flask(__name__)
+app.debug = True
+print "Flask app initialized with name %s" % __name__
+
+
 import logging
 import os
 import sys
 
-from flask import Flask, request, Response
+from flask import request, Response
 from socketio import socketio_manage
 
 from config import DevelopmentConfig
 from config import ProductionConfig
 from socket_server import ChatNamespace
 
-app = Flask(__name__)
-app.debug = True
-print "Flask app initialized with name %s" % __name__
 
 ##### set up config
 if 'APP_ENV' in os.environ and os.environ['APP_ENV'] == 'production':
